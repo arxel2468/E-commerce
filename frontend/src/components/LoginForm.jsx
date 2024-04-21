@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const LoginForm = () => {
-  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [formData, setFormData] = useState({ username: '', password: '' });
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
@@ -14,13 +14,13 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Send form data to backend for authentication
-    fetch('/api/login', {
+    fetch('http://localhost:5000/api/auth/login', { // Update the URL to include port 5000
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
-    })
+      })
       .then((response) => {
         if (!response.ok) {
           throw new Error('Login failed');
@@ -37,12 +37,12 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">Username:</label>
         <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
+          type="text"
+          id="username"
+          name="username"
+          value={formData.username}
           onChange={handleChange}
           required
         />

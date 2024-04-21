@@ -25,6 +25,8 @@ const User = db.define('User', {
     type: DataTypes.STRING,
     unique: true
   }
+}, {
+  timestamps: false // Disable timestamps
 });
 
 module.exports = User;
