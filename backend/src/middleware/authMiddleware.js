@@ -1,8 +1,8 @@
 // middleware/authMiddleware.js
 
 const jwt = require('jsonwebtoken');
-const { jwtSecret } = require('../config');
 const User = require('../models/User.js');
+const jwtSecret = 'kEUHA229H2NKiKJd92kckj2ks';
 
 // Middleware function to authenticate user
 exports.authenticateUser = async (req, res, next) => {

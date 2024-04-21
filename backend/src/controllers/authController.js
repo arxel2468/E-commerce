@@ -3,9 +3,10 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+console.log(process.env.REACT_APP_HOST)
 
 const generateAuthToken = (userId) => {
-  return jwt.sign({ userId }, process.env.REACT_APP_JWT_SECRET, { expiresIn: '7d' });
+  return jwt.sign({ userId }, 'kEUHA229H2NKiKJd92kckj2ks', { expiresIn: '7d' });
 };
 
 const register = async (req, res) => {
