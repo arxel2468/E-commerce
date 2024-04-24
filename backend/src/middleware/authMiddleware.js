@@ -2,7 +2,7 @@
 
 const jwt = require('jsonwebtoken');
 const User = require('../models/User.js');
-const jwtSecret = 'kEUHA229H2NKiKJd92kckj2ks';
+const jwtSecret =  process.env.REACT_APP_JWT_SECRET;
 
 // Middleware function to authenticate user
 exports.authenticateUser = async (req, res, next) => {
